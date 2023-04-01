@@ -1,8 +1,9 @@
 from PIL import Image
+from torch import Tensor
 from torchvision import transforms
 
 
-def preprocess_numpy(img: Image) -> Image:
+def preprocess_numpy(img: Image) -> Tensor:
     # import preprocessing function from pytorch_model.Classifier class
     resize = transforms.Resize((224, 224))
     crop = transforms.CenterCrop((224, 224))
@@ -12,7 +13,7 @@ def preprocess_numpy(img: Image) -> Image:
     img = crop(img)
     img = to_tensor(img)
     img = normalize(img)
-    return img
+    return img.unsqueeze(0)
 
 
 if __name__ == "__main__":
