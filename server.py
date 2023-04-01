@@ -39,14 +39,6 @@ def inference(request):
     prediction = onnx_model.predict(img)
 
     return response.json({"class_id": int(prediction)})
-    #try:
-    #    model_inputs = response.json.loads(request.json)
-    #except:
-    #    model_inputs = request.json
-
-    #output = user_src.inference(model_inputs)
-
-    #return response.json(output)
 
 
 if __name__ == "__main__":
