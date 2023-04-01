@@ -33,3 +33,20 @@ onnx_model = ONNXModel("./onnx_model.onnx")
 prediction = onnx_model.predict(img)
 print(prediction)
 ```
+
+## 3. Run model as a server
+To run model as a server, make sure you already export the ONNX model first,
+then run the following script
+```
+python server.py
+```
+
+The server will run in URL http://0.0.0.0:8000. You can test the server by using the 
+script `test_server.py`. Make sure to put the actual URL in the `url` variable inside
+the script first.
+```
+python test_server.py
+
+Response:
+{'class_id': 35}
+```
